@@ -91,8 +91,8 @@ return [
     |
     */
 
-    'key'    => env('APP_KEY', 'SomeRandomString'),
-    'cipher' => MCRYPT_RIJNDAEL_128,
+    'key'    => env('APP_KEY', 'Foobar'),
+    'cipher' => 'AES-256-CBC',
 
     /*
     |--------------------------------------------------------------------------
