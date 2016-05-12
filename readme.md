@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://www.attendize.com/img/logo.png" alt="Attendize"/>
+  <img src="https://www.attendize.com/img/logo-dark.png" alt="Attendize"/>
 </p>
 # Attendize 
 ### Open-source ticket selling and event management platform
@@ -56,6 +56,24 @@ Limited Documentation available at https://www.attendize.com/documentation.php. 
 ## Contribution
 
 Feel free to fork and contribute. I could use the help!
+
+## Docker dev environment
+
+To run a docker dev entionment do the following:
+
+```
+git clone https://github.com/Attendize/Attendize
+cd Attendize
+cp .env.example .env
+docker-compose build
+docker run --rm -v $(pwd):/app composer/composer install
+docker-compose up
+docker-compose run php php artisan attendize:install
+chmod a+w -R storage
+chmod a+w -R public/user_content
+```
+
+Attendize will be available at `http://localhost:8080` and maildev at `http://localhost:1080`
 
 ## License
 

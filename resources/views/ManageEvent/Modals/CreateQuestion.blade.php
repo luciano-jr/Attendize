@@ -41,26 +41,11 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="question-instructions">
-                        Instructions
-                    </label>
-                    {!! Form::text('instructions', null, [
-                        'id' => 'question-instructions',
-                        'class' => 'form-control',
-                        'placeholder' => 'e.g. Please enter your post code in the format XXX XX?'
-                    ]) !!}
-                </div>
 
 
                 <fieldset id="question-options" {!! empty($question->has_options) ? ' class="hide"' : '' !!}>
                     <h4>Question Options</h4>
                     <table class="table table-bordered table-condensed">
-                        <thead>
-                        <tr>
-                            <th colspan="2">Option name</th>
-                        </tr>
-                        </thead>
                         <tbody>
                         <tr>
                             <td><input class="form-control" name="option[]" type="text" value=""></td>

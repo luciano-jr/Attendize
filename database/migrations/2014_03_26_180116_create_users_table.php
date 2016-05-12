@@ -125,8 +125,8 @@ class CreateUsersTable extends Migration
             $t->nullableTimestamps();
             $t->softDeletes();
 
-            $t->string('first_name');
-            $t->string('last_name');
+            $t->string('first_name')->nullable();
+            $t->string('last_name')->nullable();
             $t->string('phone')->nullable();
             $t->string('email');
             $t->string('password');
@@ -214,7 +214,7 @@ class CreateUsersTable extends Migration
 
             $t->text('post_order_display_message')->nullable();
 
-            $t->text('social_share_text')->default('Check Out [event_title] - [event_url]');
+            $t->text('social_share_text')->nullable();
             $t->boolean('social_show_facebook')->default(true);
             $t->boolean('social_show_linkedin')->default(true);
             $t->boolean('social_show_twitter')->default(true);
@@ -473,8 +473,8 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('account_id')->index();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('event_id');
-            $table->unsignedInteger('is_sent', 0);
-            $table->dateTime('sent_at');
+            $table->unsignedInteger('is_sent')->default(0);
+            $table->dateTime('sent_at')->nullable();
             $table->nullableTimestamps();
 
             $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
